@@ -20,16 +20,13 @@ const choice = {
 function App() {
   const [userSelect, setUserSelect] = useState(null);
   const [computerSelect, setComputerSelect] = useState(null);
-  const [userResult, setUserResult] = useState("");
-  const [computerResult, setComputerResult] = useState("");
-  const [borderColor, setBorderColor] = useState(false);
+  const [result, setResult] = useState("");
 
   const play=(userChoice)=>{
     setUserSelect(choice[userChoice]);
     let computerChoice = randomChoice();
     setComputerSelect(computerChoice);
-    setUserResult(judgement(choice[userChoice],computerChoice));
-    setComputerResult(judgement(computerChoice,choice[userChoice]));
+    setResult(judgement(choice[userChoice],computerChoice));
   };
 
   const judgement=(user, computer)=>{
@@ -38,7 +35,7 @@ function App() {
     } else if (user.name === "Rock") return computer.name === "Scissors"?"win":"lose"
     else if (user.name === "Scissors") return computer.name === "Paper"?"win":"lose"
     else if (user.name === "Paper") return computer.name === "Rock"?"win":"lose"
-  }
+  };
 
   const randomChoice=()=>{
     let itemArray=Object.keys(choice);
@@ -50,8 +47,8 @@ function App() {
   return (
     <div>
       <div className="main">
-        <Box title="You" item={userSelect} userResult={userResult}/>
-        <Box title="Computer" item={computerSelect} computerResult={computerResult}/>
+        <Box title="You" item={userSelect} result={result}/>
+        <Box title="Computer" item={computerSelect} result={result}/>
       </div>
       <div className="main">
         <button onClick={()=>play("scissors")}>가위</button>

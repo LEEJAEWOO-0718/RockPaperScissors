@@ -1,6 +1,5 @@
 .box{
   border:3px solid black;
-  /* padding: 5%; */
   width:500px;
 }
 
@@ -14,6 +13,16 @@
 }
 
 .win {
-  border: 3px solid red;
+  border: 10px solid green; 
+  color:green;
 }
 
+.lose {
+  border: 10px solid red; 
+  color: red;
+}
+
+.tie {
+  border: 10px solid gray; 
+  color: black;
+}
